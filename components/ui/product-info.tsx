@@ -1,9 +1,16 @@
+'use client';
+import useCart from '@/hooks/use-cart';
 import { Product } from '@/store';
 
 interface ProductInfoProps {
   data: Product;
 }
 const ProductInfo: React.FC<ProductInfoProps> = ({ data }) => {
+  const cart = useCart();
+
+  const onAddToCart = () => {
+    cart.addItem(data);
+  };
   return (
     <div className="px-5 my-auto flex flex-col gap-2">
       <div className="flex justify-between gap-5 items-center">
@@ -21,7 +28,10 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ data }) => {
         {data.size.value}
       </div>
       <div className="flex justify-center">
-        <button className="bg-white text-black font-bold text-lg px-5 py-2 w-full rounded-md">
+        <button
+          className="bg-white text-black font-bold text-lg px-5 py-2 w-full rounded-md"
+          onClick={onAddToCart}
+        >
           Add to cart
         </button>
       </div>

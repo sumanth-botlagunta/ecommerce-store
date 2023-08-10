@@ -10,11 +10,9 @@ export default async function Home() {
   const billboard = await getBillBoard('33218f97-210e-4b7e-a323-9320f8d4ebf2');
   const products = await getProducts({ isFeatured: true });
   return (
-    <Container>
-      <div>
-        <Billboard data={billboard} />
-        <ProductList title="Featured Products" data={products} />
-      </div>
-    </Container>
+    <div>
+      <Billboard data={billboard} />
+      <ProductList title="Featured Products" data={products} />
+    </div>
   );
 }

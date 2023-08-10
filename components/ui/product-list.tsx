@@ -9,22 +9,22 @@ interface ProductListProps {
   data: Product[];
 }
 
+
+
 const ProductList: React.FC<ProductListProps> = ({ title, data }) => {
   const router = useRouter();
   return (
-    <div>
+    <div
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+    >
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-bold tracking-tight">{title}</h2>
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {data.map((product) => (
-            <div
-              key={product.id}
-              className="group hover:cursor-pointer "
-              onClick={() => {
-                router.push(`/product/${product.id}`);
-              }}
-            >
+            <div key={product.id} className=" hover:cursor-pointer">
               <div className="aspect-square rounded-xl bg-gray-100 relative">
                 <Image
                   fill
@@ -33,13 +33,13 @@ const ProductList: React.FC<ProductListProps> = ({ title, data }) => {
                   className="aspect-square object-cover rounded-md"
                 />
               </div>
-              <div className="mt-4 flex justify-between z-10">
+              <div className="mt-4 flex justify-between">
                 <div>
                   <h3 className="text-sm">
-                    <div>
+                    <Link href={`/product/${product.id}`}>
                       <span aria-hidden="true" className="absolute inset-0" />
                       {product.name}
-                    </div>
+                    </Link>
                   </h3>
                   <p className="mt-1 text-sm ">{product.color.name}</p>
                 </div>
