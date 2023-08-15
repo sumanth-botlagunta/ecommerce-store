@@ -12,8 +12,8 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ data }) => {
     cart.addItem(data);
   };
   return (
-    <div className="px-5 my-auto flex flex-col gap-2">
-      <div className="flex justify-between gap-5 items-center">
+    <div className="px-5 my-auto flex flex-col gap-2 ml-4">
+      <div className="flex justify-between gap-5 items-center max-w-md">
         <div className="text-2xl font-bold">{data.name}</div>
         <div className="text-3xl font-extrabold"> $ {data.price}</div>
       </div>
@@ -24,12 +24,12 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ data }) => {
           style={{ backgroundColor: data.color.value }}
         ></div>
       </div>
-      <div className="text-base m-2 p-1 outline outline-1 rounded-full  flex items-center justify-center">
+      <div className="text-base m-2 p-1 outline outline-1 rounded-full flex items-center justify-center  max-w-[100px]">
         {data.size.value}
       </div>
       <div className="flex justify-center">
         <button
-          className="bg-white text-black font-bold text-lg px-5 py-2 w-full rounded-md"
+          className="bg-white text-black font-bold text-lg px-5 py-2 w-full rounded-md max-w-xs"
           onClick={onAddToCart}
         >
           Add to cart

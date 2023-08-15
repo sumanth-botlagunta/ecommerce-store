@@ -14,7 +14,10 @@ const CartButton = () => {
     return null;
   }
   return (
-    <div className="px-2 flex" onClick={() => router.push('/cart')}>
+    <div
+      className="px-2 flex hover:cursor-pointer"
+      onClick={() => router.push('/cart')}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

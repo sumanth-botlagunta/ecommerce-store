@@ -11,7 +11,7 @@ interface ImageGalleryProps {
 const ImageGallery: React.FC<ImageGalleryProps> = ({ data }) => {
   const [mainImage, setMainImage] = useState<ImageType>(data[0]);
   return (
-    <div className="flex flex-col gap-3 p-7 ml-8">
+    <div className="flex flex-col gap-3 p-3 lg:p-7 ml-3 lg:ml-8">
       <div className="w-[400px] h-[400px] relative rounded-md">
         <Image
           fill

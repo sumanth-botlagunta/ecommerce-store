@@ -8,7 +8,7 @@ export const revalidate = 0;
 const Navbar = async () => {
   const categories = await getCategories();
   return (
-    <div className="flex justify-between h-12 items-center sticky z-30 top-1 mx-auto w-screen max-w-2xl border-[0.6px] border-blue-100 bg-black rounded-md backdrop:blur-md">
+    <div className="flex justify-between h-12 items-center sticky z-30 top-1 mx-auto max-lg:w-screen lg:max-w-2xl border-[0.6px] border-blue-100 bg-black rounded-md backdrop:blur-md">
       <div className="flex items-center h-full">
         <p className="font-bold text-xl px-2">
           <Link href="/">Store</Link>

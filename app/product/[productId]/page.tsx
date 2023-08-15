@@ -1,8 +1,5 @@
-'use clent';
-import Container from '@/components/ui/container';
 import ImageGallery from '@/components/ui/image-gallery';
 import ProductInfo from '@/components/ui/product-info';
-import ProductList from '@/components/ui/product-list';
 import getProduct from '@/services/get-product';
 import getProducts from '@/services/get-products';
 
@@ -26,18 +23,10 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
 
   return (
     <div>
-      <div className="flex flex-col lg:flex-row lg:gap-8 justify-center">
+      <div className="flex flex-col gap-4 lg:flex-row lg:gap-8 justify-center">
         <ImageGallery data={product.images} />
         <ProductInfo data={product} />
       </div>
-      {/* <div>
-        {suggestedProductsFiltered?.length > 0 && (
-          <ProductList
-            data={suggestedProductsFiltered}
-            title="Suggested Products"
-          />
-        )}
-      </div> */}
     </div>
   );
 };

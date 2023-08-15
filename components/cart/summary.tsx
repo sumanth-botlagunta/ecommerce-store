@@ -1,9 +1,6 @@
-'use client';
-
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-
 import Currency from '@/components/ui/currency';
 import useCart from '@/hooks/use-cart';
 import { toast } from 'react-hot-toast';
@@ -29,13 +26,19 @@ const Summary = () => {
   }, 0);
 
   const onCheckout = async () => {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-      {
-        productIds: items.map((item) => item.id),
-      }
-    );
-    window.location = response.data.url;
+    console.log('checkout started');
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+        {
+          productIds: items.map((item) => item.id),
+        }
+      );
+      window.location = response.data.url;
+    } catch (error) {
+      console.error('Checkout error:', error);
+      // Handle error here, you can show an error message to the user
+    }
   };
 
   return (
@@ -50,7 +53,7 @@ const Summary = () => {
       <button
         onClick={onCheckout}
         disabled={items.length === 0}
-        className="w-full mt-6"
+        className="w-full mt-6 z-20 text-black bg-white font-bold tracking-tight py-2 rounded-md"
       >
         Checkout
       </button>
