@@ -7,7 +7,7 @@ import getProducts from '@/services/get-products';
 export const revalidate = 0;
 
 export default async function Home() {
-  const billboard = await getBillBoard('33218f97-210e-4b7e-a323-9320f8d4ebf2');
+  const billboard = await getBillBoard(process.env.NEXT_PUBLIC_BILLBOARD_ID!);
   const products = await getProducts({ isFeatured: true });
   return (
     <div>
